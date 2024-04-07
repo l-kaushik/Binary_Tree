@@ -13,8 +13,6 @@ int main()
     a.Insert(9);
     a.Insert(15);
    
-
     Node* temp = a.Search(9);
-
-    std::cout<< temp->GetData();
+    std::cout << temp->GetData();
 }

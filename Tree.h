@@ -35,7 +35,7 @@ private:
     Node* InsertRecursively(Node* currentNode, int data);
 
     // searching
-    Node* SearchRecursive(Node* currentNode, int data);
+    Node* SearchRecursive(Node* currentNode, int data, Node*& outPrev);
 
     //Traversal
     void InOrderRecursive(Node * currentNode);
@@ -48,6 +48,9 @@ public:
 
     // searching
     Node* Search(int data);
+
+    // deletion
+    bool remove(int data);
 
     //Traversal
     void LevelOrderTraversal();

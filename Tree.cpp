@@ -44,10 +44,11 @@ Node *BinarySearchTree::InsertRecursively(Node *currentNode, int data)
 
 Node* BinarySearchTree::Search(int data)
 {
-    return SearchRecursive(root, data);
+    Node * dummyPrev{nullptr};
+    return SearchRecursive(root, data, dummyPrev);
 }
 
-Node* BinarySearchTree::SearchRecursive(Node* currentNode, int data)
+Node* BinarySearchTree::SearchRecursive(Node* currentNode, int data, Node*& outPrev)
 {
     // Base case
     if(currentNode == nullptr)
@@ -60,17 +61,44 @@ Node* BinarySearchTree::SearchRecursive(Node* currentNode, int data)
         return currentNode;
     }
 
+    outPrev = currentNode;  // for left and right previous node will be same
+
     if(data < currentNode->GetData())
     {
-       return SearchRecursive(currentNode->GetLeftNode(), data);
+       return SearchRecursive(currentNode->GetLeftNode(), data, outPrev);
     }
 
     if(data > currentNode->GetData())
     {
-       return SearchRecursive(currentNode->GetRightNode(), data);
+       return SearchRecursive(currentNode->GetRightNode(), data, outPrev);
     }
 
     return nullptr;
+}
+
+// deletion
+bool BinarySearchTree::remove(int data)
+{
+    Node* prev{nullptr};
+    Node* temp = SearchRecursive(root, data, prev);
+    
+    if(temp)
+    {
+        // setting pointer to null
+        if(prev->GetLeftNode() == temp){
+            prev->SetLeftNode(nullptr);
+        }
+        else{
+            prev->SetRightNode(nullptr);
+        }
+        // removing node
+        delete temp;
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 // Traversal
