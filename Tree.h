@@ -21,7 +21,7 @@ public:
     Node* GetRightNode(){return this->right;}
     
     //setter
-    void SetData(int data){this->data = data;}
+    void SetData(int inData){this->data = inData;}
     void SetLeftNode(Node* LeftNode){this->left = LeftNode;}
     void SetRightNode(Node* RightNode){this->right = RightNode;}
 
@@ -35,4 +35,8 @@ protected:
 
 public:
     void Insert(int data);
+
+    //Traversal
+    void LevelOrderTraversal();
+    void BreadthFirstSearch();
 };
