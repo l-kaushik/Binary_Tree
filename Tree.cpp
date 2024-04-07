@@ -1,8 +1,12 @@
 #include <iostream>
 #include "Tree.h"
 
-void BinarySearchTree::OrderedInsertion(int data)
+void BinarySearchTree::Insert(int data)
 {
+    /*
+        User only need to pass value
+    */
+
     root = InsertRecursively(root, data);
 }
 

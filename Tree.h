@@ -1,5 +1,7 @@
 #pragma once
 
+#define NULLVALUE -1;
+
 class Node
 {
 private:
@@ -32,5 +34,5 @@ protected:
     Node* InsertRecursively(Node* currentNode, int data);
 
 public:
-    void OrderedInsertion(int data);
+    void Insert(int data);
 };
