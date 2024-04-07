@@ -80,3 +80,77 @@ void BinarySearchTree::BreadthFirstSearch()
 {
     LevelOrderTraversal();
 }
+
+void BinarySearchTree::InOrderTraversal()
+{
+    // prints elements in ascending order
+
+    InOrderRecursive(root);
+}
+
+void BinarySearchTree::PreOrderTraversal()
+{
+    PreOrderRecursive(root);
+}
+
+void BinarySearchTree::PostOrderTraversal()
+{
+    PostOrderRecursive(root);
+}
+
+void BinarySearchTree::InOrderRecursive(Node* currentNode)
+{
+    /*
+        Works on LNR rule
+        L for left node
+        N for print data of current node
+        R for right node    
+    */
+
+    // base case
+    if(currentNode == nullptr){
+        return;
+    }
+
+    InOrderRecursive(currentNode->GetLeftNode());          // L
+    std::cout << currentNode->GetData() << ' ';            // N
+    InOrderRecursive(currentNode->GetRightNode());         // R
+}
+
+void BinarySearchTree::PreOrderRecursive(Node* currentNode)
+{
+    /*
+        Works on NLR rule
+        N for print data of current node
+        L for left node
+        R for right node    
+    */
+
+    // base case
+    if(currentNode == nullptr){
+        return;
+    }
+
+    std::cout << currentNode->GetData() << ' ';            // N
+    PreOrderRecursive(currentNode->GetLeftNode());          // L
+    PreOrderRecursive(currentNode->GetRightNode());         // R
+}
+
+void BinarySearchTree::PostOrderRecursive(Node* currentNode)
+{
+    /*
+        Works on LRN rule
+        L for left node
+        R for right node    
+        N for print data of current node
+    */
+
+    // base case
+    if(currentNode == nullptr){
+        return;
+    }
+
+    PostOrderRecursive(currentNode->GetLeftNode());          // L
+    PostOrderRecursive(currentNode->GetRightNode());         // R
+    std::cout << currentNode->GetData() << ' ';            // N
+}

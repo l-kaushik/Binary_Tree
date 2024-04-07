@@ -30,8 +30,13 @@ public:
 class BinarySearchTree
 {
     Node * root{nullptr};
-protected:
+private:
     Node* InsertRecursively(Node* currentNode, int data);
+
+    //Traversal
+    void InOrderRecursive(Node * currentNode);
+    void PreOrderRecursive(Node * currentNode);
+    void PostOrderRecursive(Node * currentNode);
 
 public:
     void Insert(int data);
@@ -39,4 +44,8 @@ public:
     //Traversal
     void LevelOrderTraversal();
     void BreadthFirstSearch();
+
+    void InOrderTraversal();
+    void PreOrderTraversal();
+    void PostOrderTraversal();
 };

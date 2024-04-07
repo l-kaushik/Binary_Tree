@@ -12,5 +12,5 @@ int main()
     a.Insert(4);
     a.Insert(8);
 
-    a.LevelOrderTraversal();
+    a.PreOrderTraversal();
 }
