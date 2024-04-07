@@ -2,6 +2,8 @@
 #include <queue>
 #include "Tree.h"
 
+// Insertion
+
 void BinarySearchTree::Insert(int data)
 {
     /*
@@ -37,6 +39,41 @@ Node *BinarySearchTree::InsertRecursively(Node *currentNode, int data)
 
     return currentNode;
 }
+
+// Searching
+
+Node* BinarySearchTree::Search(int data)
+{
+    return SearchRecursive(root, data);
+}
+
+Node* BinarySearchTree::SearchRecursive(Node* currentNode, int data)
+{
+    // Base case
+    if(currentNode == nullptr)
+    {
+        return nullptr;
+    }
+
+    if(data == currentNode->GetData())
+    {
+        return currentNode;
+    }
+
+    if(data < currentNode->GetData())
+    {
+       return SearchRecursive(currentNode->GetLeftNode(), data);
+    }
+
+    if(data > currentNode->GetData())
+    {
+       return SearchRecursive(currentNode->GetRightNode(), data);
+    }
+
+    return nullptr;
+}
+
+// Traversal
 
 // also known as Breadth First Search
 void BinarySearchTree::LevelOrderTraversal()

@@ -31,7 +31,11 @@ class BinarySearchTree
 {
     Node * root{nullptr};
 private:
+    // insertion
     Node* InsertRecursively(Node* currentNode, int data);
+
+    // searching
+    Node* SearchRecursive(Node* currentNode, int data);
 
     //Traversal
     void InOrderRecursive(Node * currentNode);
@@ -39,7 +43,11 @@ private:
     void PostOrderRecursive(Node * currentNode);
 
 public:
+    // insertion
     void Insert(int data);
+
+    // searching
+    Node* Search(int data);
 
     //Traversal
     void LevelOrderTraversal();

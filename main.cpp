@@ -5,12 +5,16 @@ int main()
 {
     BinarySearchTree a;
 
+    a.Insert(7);
     a.Insert(5);
-    a.Insert(6);
+    a.Insert(12);
     a.Insert(3);
-    a.Insert(1);
-    a.Insert(4);
-    a.Insert(8);
+    a.Insert(6);
+    a.Insert(9);
+    a.Insert(15);
+   
 
-    a.PreOrderTraversal();
+    Node* temp = a.Search(9);
+
+    std::cout<< temp->GetData();
 }
