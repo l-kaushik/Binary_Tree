@@ -14,13 +14,23 @@ public:
     Node(int inData = int(), Node* inLeft = nullptr, Node* inRight = nullptr) : data(inData), left(inLeft), right(inRight) {}
 
     //getter
-    int GetData(Node * node){return node->data;}
-    Node* GetLeftNode(Node* node){return node->left;}
-    Node* GetRightNode(Node* node){return node->right;}
+    int GetData(){return this->data;}
+    Node* GetLeftNode(){return this->left;}
+    Node* GetRightNode(){return this->right;}
     
     //setter
-    void SetData(Node * node, int data){node->data = data;}
-    void SetLeftNode(Node* node, Node* LeftNode){node->left = LeftNode;}
-    void SetRightNode(Node* node, Node* RightNode){node->right = RightNode;}
+    void SetData(int data){this->data = data;}
+    void SetLeftNode(Node* LeftNode){this->left = LeftNode;}
+    void SetRightNode(Node* RightNode){this->right = RightNode;}
 
+};
+
+class BinarySearchTree
+{
+    Node * root{nullptr};
+protected:
+    Node* InsertRecursively(Node* currentNode, int data);
+
+public:
+    void OrderedInsertion(int data);
 };
